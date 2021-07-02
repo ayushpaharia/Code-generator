@@ -1,10 +1,17 @@
 import { getDataFromTree } from "@apollo/client/react/ssr";
 import Image from "next/image";
 import withApollo from "../lib/withApollo";
-import { useCharactersQuery } from "../generated";
-
+import { CharactersQuery, useCharactersQuery } from "../generated";
+import { get } from "lodash";
+import Link from "next/link";
 const Home = () => {
   const { data, loading } = useCharactersQuery();
+
+  const characters = get(
+    data,
+    "characters.results",
+    []
+  ) as CharactersQuery["characters"]["results"];
 
   if (loading) return <div>loading...</div>;
 
@@ -18,7 +25,9 @@ const Home = () => {
             width="100px"
             height="100px"
           />{" "}
-          {character.name}
+          <Link href="/characters/[id]" as={`/characters/${character.id}`}>
+            {character.name}
+          </Link>
         </div>
       ))}
     </div>
