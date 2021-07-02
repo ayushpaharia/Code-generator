@@ -2,6 +2,7 @@
   "name": "next-graphql-apollo",
   "version": "0.1.0",
   "private": true,
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,12 +10,19 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@apollo/client": "^3.3.20",
+    "graphql": "^15.5.1",
+    "lodash": "^4.17.21",
     "next": "11.0.1",
+    "next-with-apollo": "^5.2.1",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.170",
+    "@types/react": "^17.0.13",
     "eslint": "7.29.0",
-    "eslint-config-next": "11.0.1"
+    "eslint-config-next": "11.0.1",
+    "typescript": "^4.3.5"
   }
 }
